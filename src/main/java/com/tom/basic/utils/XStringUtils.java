@@ -1,4 +1,4 @@
-package tom.basic.utils;
+package com.tom.basic.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

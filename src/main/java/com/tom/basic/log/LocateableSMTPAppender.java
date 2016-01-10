@@ -1,4 +1,4 @@
-package tom.basic.log;
+package com.tom.basic.log;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
