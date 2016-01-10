@@ -7,10 +7,14 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.google.common.base.Strings;
 
 public class XStringUtils {
 	
+
+	@SuppressWarnings("rawtypes")
 	public static String convetMap2Json(Map... maps) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
@@ -39,25 +43,20 @@ public class XStringUtils {
 	}
 	
 	public static String fullLong2String(String prefix,Long key,int toSzie){
-		int needAppendSize = toSzie - String.valueOf(key).length();
-		StringBuilder result = new StringBuilder(prefix);
-		for(int i=0;i<needAppendSize;i++){
-			result.append("0");
-		}
-		result.append(key);
-		return result.toString();
+		return Strings.padStart(String.valueOf(key), toSzie, prefix.charAt(0));
 	}
 	
 	public static String fullInt2String(String prefix,Integer key,int toSzie){
-		int needAppendSize = toSzie - String.valueOf(key).length();
-		StringBuilder result = new StringBuilder(prefix);
-		for(int i=0;i<needAppendSize;i++){
-			result.append("0");
-		}
-		result.append(key);
-		return result.toString();
+		return Strings.padStart(String.valueOf(key), toSzie, prefix.charAt(0));
 	}
 	
+	/**
+	 * null 比较。同时会对s1和s2做trim
+	 * 
+	 * @param s1
+	 * @param s2
+	 * @return
+	 */
 	public static boolean isStringSame(String s1,String s2){
 		if(s1 == null && s2 == null){
 			return true;
