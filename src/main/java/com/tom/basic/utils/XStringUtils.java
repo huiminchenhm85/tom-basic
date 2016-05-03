@@ -7,8 +7,6 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-
 import com.google.common.base.Strings;
 
 public class XStringUtils {
@@ -50,13 +48,6 @@ public class XStringUtils {
 		return Strings.padStart(String.valueOf(key), toSzie, prefix.charAt(0));
 	}
 	
-	/**
-	 * null 比较。同时会对s1和s2做trim
-	 * 
-	 * @param s1
-	 * @param s2
-	 * @return
-	 */
 	public static boolean isStringSame(String s1,String s2){
 		if(s1 == null && s2 == null){
 			return true;
@@ -100,7 +91,7 @@ public class XStringUtils {
 			}
 			return sb.toString();
 		} catch(Exception e){
-			throw new Exception("将inputStream转换成字符串失败",e);
+			throw new Exception("read string failed",e);
 		} finally {
 			if(br!=null){
 				try{
@@ -117,11 +108,9 @@ public class XStringUtils {
 			return inputStr;
 		}
 		
-		// 判断有没有emoji的字符，如果没有直接返回原字符串
 		if(!containsEmoji(inputStr)){
 			return inputStr;
 		}
-		// 过滤掉emoji字符
 		int len = inputStr.length();
 		
 		StringBuilder resultSB = new StringBuilder();
@@ -166,6 +155,21 @@ public class XStringUtils {
 			   ((code >= 0xE000) && (code <= 0xFFFD)) ||
 			   ((code >= 0x10000) && (code <= 0x10FFFF));
 	}
+	
+	
+//	public static Map<String, String> toMap(Object object) {
+//		Map<String, String> data = Maps.newHashMap();
+//		// 灏唈son瀛楃涓茶浆鎹㈡垚jsonObject
+//		JSONObject jsonObject = JSONObject.fromObject(object);
+//		Iterator it = jsonObject.keys();
+//		// 閬嶅巻jsonObject鏁版嵁锛屾坊鍔犲埌Map瀵硅薄
+//		while (it.hasNext()) {
+//			String key = String.valueOf(it.next());
+//			String value = (String) jsonObject.get(key);
+//			data.put(key, value);
+//		}
+//		return data;
+//	}
 	
 	
 

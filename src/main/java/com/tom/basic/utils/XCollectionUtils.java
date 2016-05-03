@@ -9,12 +9,7 @@ import java.util.Map.Entry;
 
 public class XCollectionUtils {
 
-	/**
-	 * ´«ÈëmapÎªMap<Integer, String>
-	 * @param oldMap
-	 * @return
-	 */
-	public static Map sortMap(Map oldMap) {  
+	public static Map<Integer,String> sortMap(Map<Integer,String> oldMap) {  
         ArrayList<Map.Entry<Integer, String>> list = new ArrayList<Map.Entry<Integer, String>>(oldMap.entrySet());  
         Collections.sort(list, new Comparator<Map.Entry<Integer, String>>() {  
             @Override  
@@ -23,7 +18,7 @@ public class XCollectionUtils {
                 return arg0.getValue().compareTo(arg1.getValue());  
             }  
         });  
-        Map newMap = new LinkedHashMap();  
+        Map<Integer,String> newMap = new LinkedHashMap<Integer,String>();  
         for (int i = 0; i < list.size(); i++) {  
             newMap.put(list.get(i).getKey(), list.get(i).getValue());  
         }  

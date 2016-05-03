@@ -1,0 +1,7 @@
+com\tom\basic\serialize\json\FooRoot.class
+com\tom\basic\utils\XStringUtilsTest.class
+com\tom\basic\serialize\json\GsonUtilsTest.class
+com\tom\basic\serialize\json\SubFoo.class
+com\tom\basic\AppTest.class
+com\tom\basic\serialize\json\Foo.class
+com\tom\basic\serialize\json\FooParent.class
